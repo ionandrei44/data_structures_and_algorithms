@@ -1,9 +1,4 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+import { Node } from "../node";
 
 class Stack {
   constructor(value) {
@@ -24,5 +19,17 @@ class Stack {
 
     this.length++;
     return this;
+  }
+
+  pop() {
+    if (this.length === 0) return undefined;
+
+    let temp = this.top;
+
+    this.top = this.top.next;
+    temp.next = null;
+
+    this.length--;
+    return temp;
   }
 }
